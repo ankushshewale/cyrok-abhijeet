@@ -1,0 +1,12 @@
+## Netlify configuration for Angular SSR app "cyrok"
+## This aligns Netlify's publish directory with the Angular build output
+
+[build]
+  # Uses the default Angular build script
+  command = "npm run build"
+
+  # The Angular CLI outputs to "dist/cyrok", and the browser bundle lives in "dist/cyrok/browser"
+  # This is where @netlify/angular-runtime expects the built app.
+  publish = "dist/cyrok/browser"
+
+
