@@ -1,0 +1,164 @@
+<!-- Page Header -->
+<section class="page-header">
+  <div class="container">
+    <h1>Contact Us</h1>
+    <p>Get in touch with CYROK Technologies</p>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section class="contact-section">
+  <div class="container">
+    <div class="contact-content">
+      <!-- Contact Information -->
+      <div class="contact-info">
+        <div class="info-card">
+          <h2>Get in Touch</h2>
+          <p>Whether you need enterprise IT solutions or custom high-performance PCs, we're here to help.</p>
+          
+          <div class="info-details">
+            <div class="info-item">
+              <div class="info-icon">🏢</div>
+              <div class="info-text">
+                <h4>Company</h4>
+                <p>{{ companyInfo.name }}</p>
+              </div>
+            </div>
+            
+            <div class="info-item">
+              <div class="info-icon">📧</div>
+              <div class="info-text">
+                <h4>Email</h4>
+                <a [href]="'mailto:' + companyInfo.email">{{ companyInfo.email }}</a>
+              </div>
+            </div>
+            
+            <div class="info-item">
+              <div class="info-icon">🌐</div>
+              <div class="info-text">
+                <h4>Website</h4>
+                <a [href]="'https://' + companyInfo.website" target="_blank">{{ companyInfo.website }}</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-sections">
+            <div class="info-box">
+              <h4>Request a Quote</h4>
+              <p>Custom enterprise IT or high-performance PC solutions tailored for your needs.</p>
+            </div>
+            
+            <div class="info-box">
+              <h4>Careers</h4>
+              <p>Join our team of technology innovators.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="contact-form-wrapper">
+        <div class="form-card">
+          <h2>Send Us a Message</h2>
+          <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+            <div class="form-group">
+              <label for="name">Name *</label>
+              <input 
+                type="text" 
+                id="name" 
+                formControlName="name"
+                [class.error]="submitted && f['name'].invalid"
+                placeholder="Your full name">
+              <div class="error-message" *ngIf="submitted && f['name'].invalid">
+                <span *ngIf="f['name'].errors?.['required']">Name is required</span>
+                <span *ngIf="f['name'].errors?.['minlength']">Name must be at least 2 characters</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input 
+                type="email" 
+                id="email" 
+                formControlName="email"
+                [class.error]="submitted && f['email'].invalid"
+                placeholder="your.email@example.com">
+              <div class="error-message" *ngIf="submitted && f['email'].invalid">
+                <span *ngIf="f['email'].errors?.['required']">Email is required</span>
+                <span *ngIf="f['email'].errors?.['email']">Please enter a valid email</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone *</label>
+              <input 
+                type="tel" 
+                id="phone" 
+                formControlName="phone"
+                [class.error]="submitted && f['phone'].invalid"
+                placeholder="+1 (555) 123-4567">
+              <div class="error-message" *ngIf="submitted && f['phone'].invalid">
+                Phone number is required
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="company">Company</label>
+              <input 
+                type="text" 
+                id="company" 
+                formControlName="company"
+                placeholder="Your company name">
+            </div>
+
+            <div class="form-group">
+              <label for="inquiryType">Inquiry Type *</label>
+              <select 
+                id="inquiryType" 
+                formControlName="inquiryType"
+                [class.error]="submitted && f['inquiryType'].invalid">
+                <option value="general">General Inquiry</option>
+                <option value="enterprise-it">Enterprise IT Services</option>
+                <option value="custom-pc">Custom PC Building</option>
+                <option value="support">Support Request</option>
+                <option value="careers">Careers</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Subject *</label>
+              <input 
+                type="text" 
+                id="subject" 
+                formControlName="subject"
+                [class.error]="submitted && f['subject'].invalid"
+                placeholder="What is this regarding?">
+              <div class="error-message" *ngIf="submitted && f['subject'].invalid">
+                Subject is required
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message *</label>
+              <textarea 
+                id="message" 
+                formControlName="message"
+                [class.error]="submitted && f['message'].invalid"
+                rows="5"
+                placeholder="Tell us about your requirements..."></textarea>
+              <div class="error-message" *ngIf="submitted && f['message'].invalid">
+                <span *ngIf="f['message'].errors?.['required']">Message is required</span>
+                <span *ngIf="f['message'].errors?.['minlength']">Message must be at least 10 characters</span>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-large" [disabled]="submitted && contactForm.invalid">
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

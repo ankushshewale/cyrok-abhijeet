@@ -1,0 +1,54 @@
+<header [class.scrolled]="isScrolled()" class="header">
+  <div class="container header-content">
+    <div class="logo-section">
+      <a class="logo-link" [routerLink]="'/'">
+        <img src="/assets/logo.png" alt="CYROK Technologies" class="logo" />
+      </a>
+    </div>
+
+    <!-- Desktop Navigation -->
+    <nav class="nav-desktop">
+      <ul class="nav-list">
+        <li *ngFor="let item of navigationItems">
+          <a
+            [routerLink]="item.route"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            (click)="scrollToTop()"
+          >
+            {{ item.label }}
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Mobile Menu Toggle -->
+    <button
+      class="mobile-menu-toggle"
+      [class.is-open]="mobileMenuOpen()"
+      (click)="toggleMobileMenu()"
+      [attr.aria-label]="mobileMenuOpen() ? 'Close menu' : 'Open menu'"
+      [attr.aria-expanded]="mobileMenuOpen()"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
+  <!-- Mobile Navigation -->
+  <nav class="nav-mobile" *ngIf="mobileMenuOpen()">
+    <ul class="nav-list">
+      <li *ngFor="let item of navigationItems">
+        <a
+          [routerLink]="item.route"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          (click)="scrollToTop(); closeMobileMenu()"
+        >
+          {{ item.label }}
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>

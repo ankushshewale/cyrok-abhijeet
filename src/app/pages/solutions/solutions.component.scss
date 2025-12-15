@@ -1,0 +1,134 @@
+.page-header {
+  background: linear-gradient(135deg, rgba(0, 209, 255, 0.1) 0%, rgba(7, 18, 40, 0.9) 100%);
+  padding: var(--spacing-5xl) 0;
+  text-align: center;
+}
+
+.page-header h1 {
+  font-size: var(--font-size-5xl);
+  margin-bottom: var(--spacing-md);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.page-header p {
+  font-size: var(--font-size-xl);
+  color: var(--color-text-secondary);
+}
+
+.solutions-section {
+  padding: var(--spacing-5xl) 0;
+}
+
+.solutions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-xl);
+}
+
+.solution-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: transform var(--transition-base);
+}
+
+.solution-card:hover {
+  transform: translateY(-8px);
+}
+
+.solution-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.solution-icon {
+  font-size: 2.5rem;
+  flex-shrink: 0;
+}
+
+.solution-title {
+  font-size: var(--font-size-xl);
+  margin: 0;
+  color: var(--color-white);
+}
+
+.solution-description {
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-lg);
+  line-height: 1.6;
+  min-height: 3rem;
+}
+
+.solution-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--spacing-lg) 0;
+  flex: 1;
+}
+
+.solution-list li {
+  padding: var(--spacing-sm) 0;
+  padding-left: var(--spacing-xl);
+  position: relative;
+  color: var(--color-text-primary);
+  line-height: 1.6;
+}
+
+.solution-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--color-cyan);
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.solution-cta {
+  margin-top: auto;
+  padding-top: var(--spacing-lg);
+}
+
+.cta-section {
+  background: linear-gradient(135deg, rgba(0, 209, 255, 0.05) 0%, rgba(7, 18, 40, 0.9) 100%);
+  text-align: center;
+  padding: var(--spacing-5xl) 0;
+}
+
+.cta-section h2 {
+  margin-bottom: var(--spacing-md);
+}
+
+.cta-section p {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-xl);
+}
+
+.cta-buttons {
+  display: flex;
+  gap: var(--spacing-lg);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .solutions-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page-header h1 {
+    font-size: var(--font-size-3xl);
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+  }
+
+  .cta-buttons .btn {
+    width: 100%;
+  }
+}
+

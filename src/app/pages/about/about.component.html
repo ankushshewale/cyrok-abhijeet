@@ -1,0 +1,77 @@
+<!-- Page Header -->
+<section class="page-header">
+  <div class="container">
+    <h1>About CYROK Technologies</h1>
+    <p>Building the future of enterprise IT and performance computing</p>
+  </div>
+</section>
+
+<!-- Company Overview -->
+<section class="overview-section">
+  <div class="container">
+    <div class="overview-content">
+      <div class="overview-text">
+        <h2>Who We Are</h2>
+        <p>CYROK Technologies builds secure, scalable, and future-ready ecosystems for organizations and individual professionals. We combine enterprise-level IT services with specialized hardware engineering to deliver high-performance custom PCs.</p>
+      </div>
+      <div class="overview-box">
+        <div class="box mission-box">
+          <h4>Our Mission</h4>
+          <p>Deliver ethical, innovative, and dependable IT and hardware solutions that enhance performance, security, and efficiency.</p>
+        </div>
+        <div class="box vision-box">
+          <h4>Our Vision</h4>
+          <p>Become a global leader in managed IT, digital transformation, and performance computing.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Core Values -->
+<section class="values-section">
+  <div class="container">
+    <div class="section-title">
+      <h2>Core Values</h2>
+      <p>Principles that guide everything we do</p>
+    </div>
+    <div class="grid grid-cols-3">
+      <div class="value-card" *ngFor="let value of coreValues">
+        <h3 class="value-title">{{ value.title }}</h3>
+        <p class="value-desc">{{ value.description }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Our Approach -->
+<section class="approach-section">
+  <div class="container">
+    <div class="section-title">
+      <h2>Our Approach</h2>
+      <p>A proven methodology for success</p>
+    </div>
+    <div class="approach-steps">
+      <div class="approach-step" *ngFor="let step of approach">
+        <div class="step-circle">{{ step.num }}</div>
+        <h4>{{ step.title }}</h4>
+        <p>{{ step.desc }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- What Makes Us Unique -->
+<section class="unique-section">
+  <div class="container">
+    <div class="section-title">
+      <h2>What Makes CYROK Unique</h2>
+    </div>
+    <div class="grid grid-cols-2">
+      <div class="unique-item" *ngFor="let item of unique">
+        <div class="unique-icon">✓</div>
+        <h4>{{ item }}</h4>
+      </div>
+    </div>
+  </div>
+</section>
