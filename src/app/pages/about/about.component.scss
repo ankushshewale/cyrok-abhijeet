@@ -1,0 +1,109 @@
+/* Basic styles for About page */
+.page-header {
+  padding: var(--spacing-4xl) 0;
+  text-align: center;
+}
+
+.page-header h1 {
+  color: var(--color-white);
+  font-size: var(--font-size-4xl);
+  margin-bottom: var(--spacing-md);
+}
+
+.page-header p {
+  color: var(--color-text-primary);
+}
+
+.overview-section {
+  padding: var(--spacing-5xl) 0;
+}
+
+.overview-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--spacing-xl);
+  align-items: start;
+}
+
+.overview-box .box {
+  background: rgba(0,0,0,0.2);
+  border: 1px solid var(--color-border);
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--spacing-md);
+}
+
+.values-section {
+  padding: var(--spacing-4xl) 0;
+}
+
+.value-card {
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-md);
+  background: rgba(0, 209, 255, 0.02);
+  color: var(--color-text-primary);
+}
+
+.approach-section {
+  padding: var(--spacing-4xl) 0;
+}
+
+.approach-steps {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--spacing-lg);
+}
+
+.approach-step {
+  text-align: center;
+}
+
+.step-circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-cyan), var(--color-orange));
+  color: var(--color-dark-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--spacing-md);
+  font-weight: var(--font-weight-bold);
+}
+
+.unique-section {
+  padding: var(--spacing-4xl) 0;
+}
+
+.unique-item {
+  display: flex;
+  gap: var(--spacing-md);
+  align-items: center;
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+}
+
+.unique-icon {
+  background: var(--color-cyan);
+  color: var(--color-dark-blue);
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+@media (max-width: 1024px) {
+  .overview-content {
+    grid-template-columns: 1fr;
+  }
+
+  .approach-steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .approach-steps {
+    grid-template-columns: 1fr;
+  }
+}

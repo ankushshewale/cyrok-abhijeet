@@ -1,0 +1,94 @@
+<!-- Page Header -->
+<section class="page-header">
+  <div class="container">
+    <h1>Our Products</h1>
+    <p>Premium hardware solutions and custom-built high-performance systems</p>
+  </div>
+</section>
+
+<!-- Products Section -->
+<section class="products-section">
+  <div class="container">
+    <div class="section-title">
+      <span class="section-subtitle">Product Catalog</span>
+      <h2>Hardware Solutions for Every Need</h2>
+    </div>
+    <div class="products-grid">
+      <div class="product-card card" *ngFor="let category of productCategories" [class.highlight-card]="category.highlight">
+        <div class="product-header">
+          <div class="product-icon">{{ category.icon }}</div>
+          <h3 class="product-title">{{ category.title }}</h3>
+        </div>
+        <p class="product-description">{{ category.description }}</p>
+        <ul class="product-list">
+          <li *ngFor="let item of category.items">{{ item }}</li>
+        </ul>
+        <div class="product-cta" *ngIf="category.highlight">
+          <button class="btn btn-primary">Build Custom PC</button>
+        </div>
+        <div class="product-cta" *ngIf="!category.highlight">
+          <button class="btn btn-secondary">View Products</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Custom PC Highlight Section -->
+<section class="custom-pc-section">
+  <div class="container">
+    <div class="custom-pc-content">
+      <div class="custom-pc-text">
+        <span class="section-subtitle">Core Offering</span>
+        <h2>Custom High-Performance PCs</h2>
+        <p>CYROK specializes in engineering high-performance PCs tailored for professionals and enthusiasts. Every system is hand-built with premium components, precision thermal management, and rigorous testing.</p>
+        <div class="pc-features">
+          <div class="feature-item">
+            <div class="feature-icon">⚡</div>
+            <div class="feature-content">
+              <h4>Premium Components</h4>
+              <p>Hand-selected top-tier hardware for maximum performance</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">🌡️</div>
+            <div class="feature-content">
+              <h4>Thermal Engineering</h4>
+              <p>Precision cooling and airflow optimization</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">✅</div>
+            <div class="feature-content">
+              <h4>Stress Tested</h4>
+              <p>Benchmark-tuned and reliability-verified systems</p>
+            </div>
+          </div>
+        </div>
+        <div class="cta-buttons">
+          <a routerLink="/contact" class="btn btn-primary btn-large">Request Custom PC Quote</a>
+          <a routerLink="/services" class="btn btn-secondary btn-large">Learn More</a>
+        </div>
+      </div>
+      <div class="custom-pc-visual">
+        <div class="pc-visual-box">
+          <div class="pc-icon-large">💻</div>
+          <div class="pc-glow"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+  <div class="container">
+    <h2>Ready to Upgrade Your Hardware?</h2>
+    <p>Contact us for custom enterprise IT solutions or high-performance PC builds tailored to your needs.</p>
+    <div class="cta-buttons">
+      <a routerLink="/contact" class="btn btn-primary btn-large">Get Quote</a>
+      <a routerLink="/solutions" class="btn btn-secondary btn-large">Explore Solutions</a>
+    </div>
+  </div>
+</section>
+

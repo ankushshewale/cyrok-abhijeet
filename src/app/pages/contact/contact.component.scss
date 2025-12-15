@@ -1,0 +1,210 @@
+.page-header {
+  background: linear-gradient(135deg, rgba(0, 209, 255, 0.1) 0%, rgba(7, 18, 40, 0.9) 100%);
+  padding: var(--spacing-5xl) 0;
+  text-align: center;
+}
+
+.page-header h1 {
+  font-size: var(--font-size-5xl);
+  margin-bottom: var(--spacing-md);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.page-header p {
+  font-size: var(--font-size-xl);
+  color: var(--color-text-secondary);
+}
+
+.contact-section {
+  padding: var(--spacing-5xl) 0;
+}
+
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: var(--spacing-4xl);
+  align-items: start;
+}
+
+.contact-info {
+  position: sticky;
+  top: var(--spacing-xl);
+}
+
+.info-card {
+  background: rgba(0, 209, 255, 0.05);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-2xl);
+}
+
+.info-card h2 {
+  margin-bottom: var(--spacing-md);
+  color: var(--color-white);
+}
+
+.info-card > p {
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-xl);
+  line-height: 1.6;
+}
+
+.info-details {
+  margin-bottom: var(--spacing-xl);
+}
+
+.info-item {
+  display: flex;
+  gap: var(--spacing-lg);
+  align-items: flex-start;
+  margin-bottom: var(--spacing-lg);
+}
+
+.info-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.info-text h4 {
+  color: var(--color-cyan);
+  font-size: var(--font-size-base);
+  margin-bottom: var(--spacing-xs);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.info-text p,
+.info-text a {
+  color: var(--color-text-primary);
+  font-size: var(--font-size-base);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.info-text a:hover {
+  color: var(--color-cyan);
+}
+
+.info-sections {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  padding-top: var(--spacing-xl);
+  border-top: 1px solid var(--color-border);
+}
+
+.info-box {
+  padding: var(--spacing-lg);
+  background: rgba(0, 209, 255, 0.03);
+  border-radius: var(--radius-md);
+  border-left: 3px solid var(--color-cyan);
+}
+
+.info-box h4 {
+  color: var(--color-cyan);
+  margin-bottom: var(--spacing-sm);
+  font-size: var(--font-size-lg);
+}
+
+.info-box p {
+  color: var(--color-text-primary);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.form-card {
+  background: rgba(0, 209, 255, 0.05);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-2xl);
+}
+
+.form-card h2 {
+  margin-bottom: var(--spacing-xl);
+  color: var(--color-white);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.form-group label {
+  color: var(--color-cyan);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: var(--spacing-md);
+  background: rgba(7, 18, 40, 0.8);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text-primary);
+  font-family: var(--font-primary);
+  font-size: var(--font-size-base);
+  transition: all var(--transition-fast);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--color-cyan);
+  box-shadow: 0 0 0 3px rgba(0, 209, 255, 0.1);
+}
+
+.form-group input.error,
+.form-group select.error,
+.form-group textarea.error {
+  border-color: var(--color-orange);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.error-message {
+  color: var(--color-orange);
+  font-size: var(--font-size-sm);
+  margin-top: var(--spacing-xs);
+}
+
+.form-group button {
+  margin-top: var(--spacing-md);
+}
+
+@media (max-width: 1024px) {
+  .contact-content {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-info {
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-header h1 {
+    font-size: var(--font-size-3xl);
+  }
+
+  .info-card,
+  .form-card {
+    padding: var(--spacing-xl);
+  }
+}
+

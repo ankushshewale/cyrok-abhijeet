@@ -1,0 +1,63 @@
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <!-- Company Info -->
+      <div class="footer-section">
+        <h4 class="footer-title">CYROK Technologies</h4>
+        <p class="footer-text">
+          Building secure, scalable, and ethical technology solutions for enterprises and
+          professionals.
+        </p>
+        <div class="contact-info">
+          <p><strong>Email:</strong> <a href="mailto:info@cyrok.com">info@cyrok.com</a></p>
+          <p>
+            <strong>Website:</strong>
+            <a href="https://www.cyrok.com" target="_blank">www.cyrok.com</a>
+          </p>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-section">
+        <h5 class="footer-subtitle">Quick Links</h5>
+        <ul class="footer-links">
+          <li *ngFor="let link of quickLinks">
+            <a [routerLink]="link.route" (click)="scrollToTop()">{{ link.label }}</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Services -->
+      <div class="footer-section">
+        <h5 class="footer-subtitle">Services</h5>
+        <ul class="footer-links">
+          <li *ngFor="let service of serviceCategories">
+            <a href="#" (click)="scrollToTopAndPrevent($event)">{{ service }}</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Industries -->
+      <div class="footer-section">
+        <h5 class="footer-subtitle">Industries</h5>
+        <ul class="footer-links">
+          <li *ngFor="let industry of industries">
+            <a href="#" (click)="scrollToTopAndPrevent($event)">{{ industry }}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="footer-bottom">
+      <p class="copyright">
+        &copy; {{ currentYear }} CYROK Technologies Pvt. Ltd. All rights reserved.
+      </p>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>

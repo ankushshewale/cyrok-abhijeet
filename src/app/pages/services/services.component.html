@@ -1,0 +1,60 @@
+<!-- Page Header -->
+<section class="page-header">
+  <div class="container">
+    <h1>Our Services</h1>
+    <p>Comprehensive IT solutions and custom PC engineering for your business needs</p>
+  </div>
+</section>
+
+<!-- Services Grid -->
+<section class="services-section">
+  <div class="container">
+    <div class="services-grid">
+      <div class="service-card card" *ngFor="let service of services; let i = index" [class.highlight-card]="service.highlight">
+        <div class="service-header">
+          <div class="service-icon">{{ service.icon }}</div>
+          <h2 class="service-title">{{ service.title }}</h2>
+        </div>
+        <p class="service-description">{{ service.description }}</p>
+        
+        <div class="service-content" *ngIf="service.items">
+          <ul class="service-list">
+            <li *ngFor="let item of service.items">{{ item }}</li>
+          </ul>
+        </div>
+
+        <div class="service-content" *ngIf="service.specializations">
+          <div class="specializations">
+            <h4>Customized for:</h4>
+            <ul class="service-list">
+              <li *ngFor="let spec of service.specializations">{{ spec }}</li>
+            </ul>
+          </div>
+          <div class="features">
+            <h4>Why CYROK Custom PCs:</h4>
+            <ul class="service-list">
+              <li *ngFor="let feature of service.features">{{ feature }}</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="service-cta" *ngIf="service.highlight">
+          <button class="btn btn-primary">Request Custom PC Quote</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+  <div class="container">
+    <h2>Ready to Transform Your IT Infrastructure?</h2>
+    <p>Let's discuss how CYROK can help your business achieve its technology goals.</p>
+    <div class="cta-buttons">
+      <a routerLink="/contact" class="btn btn-primary btn-large">Get Started</a>
+      <a routerLink="/solutions" class="btn btn-secondary btn-large">Explore Solutions</a>
+    </div>
+  </div>
+</section>
+

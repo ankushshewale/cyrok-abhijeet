@@ -1,0 +1,153 @@
+<!-- Hero Section -->
+<section class="section-hero-bg hero">
+  <div class="container hero-content">
+    <div class="hero-text">
+      <h1 class="hero-title">
+        <span class="highlight">Secure.</span> <span class="highlight">Scalable.</span>
+        <span class="highlight">Ethical.</span>
+      </h1>
+      <p class="hero-subtitle">
+        Enterprise IT solutions and high-performance custom PCs built for reliability, speed, and
+        the future.
+      </p>
+      <div class="hero-cta">
+        <a routerLink="/services" class="btn btn-primary btn-large">Explore Services</a>
+        <a routerLink="/contact" class="btn btn-secondary btn-large">Request a Consultation</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="shield-icon">🛡️</div>
+    </div>
+  </div>
+</section>
+
+<!-- Overview Section -->
+<section class="section-dark-overlay overview">
+  <div class="container">
+    <div class="section-title">
+      <span class="section-subtitle">What We Do</span>
+      <h2>Future-Ready Technology Solutions</h2>
+    </div>
+    <p class="overview-text text-center">
+      CYROK Technologies is a future-ready IT services and solutions provider delivering secure,
+      scalable, and ethical technology across enterprises, digital infrastructure, and advanced
+      computing systems.
+    </p>
+  </div>
+</section>
+
+<!-- Key Services Section -->
+<section class="section-default services-grid">
+  <div class="container">
+    <div class="section-title">
+      <span class="section-subtitle">Our Services</span>
+      <h2>Comprehensive Technology Solutions</h2>
+    </div>
+    <div class="grid grid-cols-3">
+      <div
+        class="service-card card"
+        *ngFor="let service of keyServices; let i = index"
+        [style.animation-delay]="i * 100 + 'ms'"
+      >
+        <div class="service-icon">{{ service.icon }}</div>
+        <h3 class="card-title">{{ service.title }}</h3>
+        <p class="card-text">{{ service.description }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Custom PC Engineering Section -->
+<section class="section-gradient-orange custom-pc">
+  <div class="container">
+    <div class="custom-pc-content">
+      <div class="custom-pc-text">
+        <span class="section-subtitle">Specialized Engineering</span>
+        <h2>Custom High-Performance PC Building</h2>
+        <p>CYROK specializes in designing high-performance PCs customized for:</p>
+        <ul class="pc-list">
+          <li *ngFor="let spec of pcSpecializations">{{ spec }}</li>
+        </ul>
+        <div class="feature-list">
+          <div class="feature-item">
+            <div class="feature-icon">✓</div>
+            <span>Hand-selected premium components</span>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">✓</div>
+            <span>Precision thermal engineering</span>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">✓</div>
+            <span>Stress-tested reliability & stability</span>
+          </div>
+        </div>
+        <a routerLink="/products" class="btn btn-primary btn-large">Build Custom PC</a>
+      </div>
+      <div class="custom-pc-visual">
+        <div class="pc-icon">💻</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why Choose CYROK -->
+<section class="section-soft-cyan why-choose">
+  <div class="container">
+    <div class="section-title">
+      <span class="section-subtitle">Why Choose Us</span>
+      <h2>What Sets CYROK Apart</h2>
+    </div>
+    <div class="grid grid-cols-2">
+      <div class="why-card" *ngFor="let item of whyChoose; let i = index">
+        <div class="why-icon">{{ i + 1 }}</div>
+        <h4>{{ item }}</h4>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Industries Section -->
+<section class="section-default industries">
+  <div class="container">
+    <div class="section-title">
+      <span class="section-subtitle">Industries We Serve</span>
+      <h2>Across Multiple Sectors</h2>
+    </div>
+    <div class="grid grid-cols-3">
+      <div class="industry-card" *ngFor="let industry of industries">
+        <div class="industry-icon">{{ industry.icon }}</div>
+        <h4>{{ industry.name }}</h4>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Process Section -->
+<section class="section-gradient-orange process">
+  <div class="container">
+    <div class="section-title">
+      <span class="section-subtitle">Our Approach</span>
+      <h2>Not Assembled: Engineered</h2>
+    </div>
+    <div class="process-timeline">
+      <div class="process-step" *ngFor="let step of processSteps">
+        <div class="step-number">{{ step.num }}</div>
+        <h4 class="step-title">{{ step.title }}</h4>
+        <p class="step-desc">{{ step.desc }}</p>
+        <div class="step-line" *ngIf="step !== processSteps[processSteps.length - 1]"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Bottom CTA Section -->
+<section class="section-hero-bg cta-bottom">
+  <div class="container">
+    <h2>Let's Build Your Secure Digital Foundation</h2>
+    <div class="cta-buttons">
+      <a routerLink="/contact" class="btn btn-primary btn-large">Talk to Our IT Experts</a>
+      <a routerLink="/products" class="btn btn-secondary btn-large">Build Our Custom PC</a>
+    </div>
+  </div>
+</section>

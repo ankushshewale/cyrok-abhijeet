@@ -1,0 +1,72 @@
+<!-- Page Header -->
+<section class="page-header">
+  <div class="container">
+    <h1>Industries We Serve</h1>
+    <p>Tailored IT solutions across multiple sectors</p>
+  </div>
+</section>
+
+<!-- Industries Grid -->
+<section class="industries-section">
+  <div class="container">
+    <div class="section-title">
+      <span class="section-subtitle">Our Expertise</span>
+      <h2>Industry-Specific Solutions</h2>
+      <p class="section-description">CYROK delivers secure, scalable, and future-ready technology solutions across diverse industries, understanding the unique challenges and compliance requirements of each sector.</p>
+    </div>
+    <div class="industries-grid">
+      <div class="industry-card card" *ngFor="let industry of industries; let i = index" [style.animation-delay]="(i * 100) + 'ms'">
+        <div class="industry-icon">{{ industry.icon }}</div>
+        <h3 class="industry-name">{{ industry.name }}</h3>
+        <p class="industry-description">{{ industry.description }}</p>
+        <div class="industry-cta">
+          <button class="btn btn-secondary">Learn More</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why Industries Choose CYROK -->
+<section class="why-section">
+  <div class="container">
+    <div class="section-title">
+      <h2>Why Industries Trust CYROK</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-item">
+        <div class="why-icon">🔒</div>
+        <h4>Security-First</h4>
+        <p>End-to-end security designed for industry compliance requirements</p>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">📈</div>
+        <h4>Scalable Solutions</h4>
+        <p>Technology that grows with your business needs</p>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">⚡</div>
+        <h4>24×7 Support</h4>
+        <p>Round-the-clock monitoring and rapid response</p>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">✅</div>
+        <h4>SLA Adherence</h4>
+        <p>Strong commitment to service level agreements</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+  <div class="container">
+    <h2>Ready to Transform Your Industry IT?</h2>
+    <p>Let's discuss how CYROK can help your organization achieve its technology goals.</p>
+    <div class="cta-buttons">
+      <a routerLink="/contact" class="btn btn-primary btn-large">Get Started</a>
+      <a routerLink="/services" class="btn btn-secondary btn-large">View Services</a>
+    </div>
+  </div>
+</section>
+

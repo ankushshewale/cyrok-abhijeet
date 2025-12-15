@@ -1,0 +1,45 @@
+<!-- Page Header -->
+<section class="page-header">
+  <div class="container">
+    <h1>Our Solutions</h1>
+    <p>End-to-end technology solutions tailored for your business requirements</p>
+  </div>
+</section>
+
+<!-- Solutions Grid -->
+<section class="solutions-section">
+  <div class="container">
+    <div class="section-title">
+      <span class="section-subtitle">Comprehensive Solutions</span>
+      <h2>Technology Solutions for Every Need</h2>
+    </div>
+    <div class="solutions-grid">
+      <div class="solution-card card" *ngFor="let solution of solutions; let i = index">
+        <div class="solution-header">
+          <div class="solution-icon">{{ solution.icon }}</div>
+          <h3 class="solution-title">{{ solution.title }}</h3>
+        </div>
+        <p class="solution-description">{{ solution.description }}</p>
+        <ul class="solution-list">
+          <li *ngFor="let item of solution.items">{{ item }}</li>
+        </ul>
+        <div class="solution-cta">
+          <button class="btn btn-secondary">Learn More</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+  <div class="container">
+    <h2>Need a Custom Solution?</h2>
+    <p>Our experts can design and deploy a solution tailored specifically to your business needs.</p>
+    <div class="cta-buttons">
+      <a routerLink="/contact" class="btn btn-primary btn-large">Request Consultation</a>
+      <a routerLink="/services" class="btn btn-secondary btn-large">View Services</a>
+    </div>
+  </div>
+</section>
+
