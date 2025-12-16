@@ -35,21 +35,9 @@ export class FooterComponent {
     { label: 'Government', slug: 'government' }
   ];
 
-  socialLinks = [
-    { name: 'LinkedIn', url: '#' },
-    { name: 'Twitter', url: '#' },
-    { name: 'Facebook', url: '#' },
-    { name: 'Instagram', url: '#' }
-  ];
-
   scrollToTop(): void {
     if (typeof window !== 'undefined') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-  }
-
-  scrollToTopAndPrevent(event: Event): void {
-    event.preventDefault();
-    this.scrollToTop();
   }
 }
