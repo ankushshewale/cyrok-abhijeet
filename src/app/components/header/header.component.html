@@ -14,6 +14,7 @@
             [routerLink]="item.route"
             routerLinkActive="active"
             [routerLinkActiveOptions]="{ exact: item.exact }"
+            [ariaCurrentWhenActive]="'page'"
             (click)="scrollToTop()"
           >
             {{ item.label }}
@@ -44,6 +45,7 @@
           [routerLink]="item.route"
           routerLinkActive="active"
           [routerLinkActiveOptions]="{ exact: item.exact }"
+          [ariaCurrentWhenActive]="'page'"
           (click)="scrollToTop(); closeMobileMenu()"
         >
           {{ item.label }}

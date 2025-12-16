@@ -67,9 +67,9 @@
                 type="text" 
                 id="name" 
                 formControlName="name"
-                [class.error]="submitted && f['name'].invalid"
+                [class.error]="(submitted || f['name'].touched) && f['name'].invalid"
                 placeholder="Your full name">
-              <div class="error-message" *ngIf="submitted && f['name'].invalid">
+              <div class="error-message" *ngIf="(submitted || f['name'].touched) && f['name'].invalid">
                 <span *ngIf="f['name'].errors?.['required']">Name is required</span>
                 <span *ngIf="f['name'].errors?.['minlength']">Name must be at least 2 characters</span>
               </div>
@@ -81,9 +81,9 @@
                 type="email" 
                 id="email" 
                 formControlName="email"
-                [class.error]="submitted && f['email'].invalid"
+                [class.error]="(submitted || f['email'].touched) && f['email'].invalid"
                 placeholder="your.email@example.com">
-              <div class="error-message" *ngIf="submitted && f['email'].invalid">
+              <div class="error-message" *ngIf="(submitted || f['email'].touched) && f['email'].invalid">
                 <span *ngIf="f['email'].errors?.['required']">Email is required</span>
                 <span *ngIf="f['email'].errors?.['email']">Please enter a valid email</span>
               </div>
@@ -95,9 +95,9 @@
                 type="tel" 
                 id="phone" 
                 formControlName="phone"
-                [class.error]="submitted && f['phone'].invalid"
+                [class.error]="(submitted || f['phone'].touched) && f['phone'].invalid"
                 placeholder="+1 (555) 123-4567">
-              <div class="error-message" *ngIf="submitted && f['phone'].invalid">
+              <div class="error-message" *ngIf="(submitted || f['phone'].touched) && f['phone'].invalid">
                 Phone number is required
               </div>
             </div>
@@ -131,9 +131,9 @@
                 type="text" 
                 id="subject" 
                 formControlName="subject"
-                [class.error]="submitted && f['subject'].invalid"
+                [class.error]="(submitted || f['subject'].touched) && f['subject'].invalid"
                 placeholder="What is this regarding?">
-              <div class="error-message" *ngIf="submitted && f['subject'].invalid">
+              <div class="error-message" *ngIf="(submitted || f['subject'].touched) && f['subject'].invalid">
                 Subject is required
               </div>
             </div>
@@ -143,10 +143,10 @@
               <textarea 
                 id="message" 
                 formControlName="message"
-                [class.error]="submitted && f['message'].invalid"
+                [class.error]="(submitted || f['message'].touched) && f['message'].invalid"
                 rows="5"
                 placeholder="Tell us about your requirements..."></textarea>
-              <div class="error-message" *ngIf="submitted && f['message'].invalid">
+              <div class="error-message" *ngIf="(submitted || f['message'].touched) && f['message'].invalid">
                 <span *ngIf="f['message'].errors?.['required']">Message is required</span>
                 <span *ngIf="f['message'].errors?.['minlength']">Message must be at least 10 characters</span>
               </div>

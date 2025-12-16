@@ -1,7 +1,7 @@
 import { Component, computed, effect, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { Title } from '@angular/platform-browser';
+import { Meta, Title } from '@angular/platform-browser';
 
 interface IndustryDetail {
   slug: string;
@@ -24,6 +24,7 @@ interface IndustryDetail {
 export class IndustryDetailComponent {
   private route = inject(ActivatedRoute);
   private title = inject(Title);
+  private meta = inject(Meta);
 
   private allIndustries: IndustryDetail[] = [
     {
@@ -171,7 +172,11 @@ export class IndustryDetailComponent {
     effect(() => {
       const industry = this.currentIndustry();
       if (industry) {
-        this.title.setTitle(`${industry.name} - Cyrok`);
+        this.title.setTitle(`${industry.name} - Cyrok Industries`);
+        this.meta.updateTag({
+          name: 'description',
+          content: industry.shortDescription,
+        });
       }
     });
   }

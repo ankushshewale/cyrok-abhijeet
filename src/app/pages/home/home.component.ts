@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
@@ -10,6 +11,9 @@ import { RouterLink } from '@angular/router';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
+  private title = inject(Title);
+  private meta = inject(Meta);
+
   // Key Services
   keyServices = [
     {
@@ -80,4 +84,13 @@ export class HomeComponent {
     'AI/ML & Data Computing',
     'Professional Workstations'
   ];
+
+  constructor() {
+    this.title.setTitle('Home - Cyrok');
+    this.meta.updateTag({
+      name: 'description',
+      content:
+        'CYROK Technologies delivers secure, scalable, and ethical IT services, cloud solutions, cybersecurity, and custom high-performance PCs for enterprises and professionals.',
+    });
+  }
 }

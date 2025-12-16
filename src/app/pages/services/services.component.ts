@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-services',
@@ -10,6 +11,9 @@ import { RouterLink } from '@angular/router';
   styleUrls: ['./services.component.scss']
 })
 export class ServicesComponent {
+  private title = inject(Title);
+  private meta = inject(Meta);
+
   services = [
     {
       id: 'managed-it',
@@ -99,4 +103,13 @@ export class ServicesComponent {
       ]
     }
   ];
+
+  constructor() {
+    this.title.setTitle('Services - Cyrok');
+    this.meta.updateTag({
+      name: 'description',
+      content:
+        'Explore CYROK’s managed IT, AMC & break-fix, infrastructure management, BMS, IT procurement, and custom high-performance PC services.',
+    });
+  }
 }

@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-products',
@@ -10,6 +11,9 @@ import { RouterLink } from '@angular/router';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent {
+  private title = inject(Title);
+  private meta = inject(Meta);
+
   productCategories = [
     {
       title: 'Laptops & Desktops',
@@ -45,4 +49,13 @@ export class ProductsComponent {
       ]
     }
   ];
+
+  constructor() {
+    this.title.setTitle('Products - Cyrok');
+    this.meta.updateTag({
+      name: 'description',
+      content:
+        'Browse CYROK’s product catalog including business laptops and desktops, custom high-end PCs, and professional accessories.',
+    });
+  }
 }

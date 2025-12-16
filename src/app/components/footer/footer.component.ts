@@ -20,19 +20,19 @@ export class FooterComponent {
   ];
 
   serviceCategories = [
-    'Managed IT Services',
-    'Cybersecurity & SOC',
-    'Cloud Solutions',
-    'Custom PC Building'
+    { label: 'Managed IT Services', slug: 'managed-it-services' },
+    { label: 'Cybersecurity & SOC', slug: 'cybersecurity-solutions' },
+    { label: 'Cloud Solutions', slug: 'cloud-solutions' },
+    { label: 'Custom PC Building', slug: 'custom-high-performance-pc' }
   ];
 
   industries = [
-    'IT & Software',
-    'BFSI',
-    'Healthcare',
-    'Education',
-    'Manufacturing',
-    'Government'
+    { label: 'IT & Software', slug: 'it-software' },
+    { label: 'BFSI', slug: 'bfsi' },
+    { label: 'Healthcare', slug: 'healthcare' },
+    { label: 'Education', slug: 'education' },
+    { label: 'Manufacturing', slug: 'manufacturing' },
+    { label: 'Government', slug: 'government' }
   ];
 
   socialLinks = [

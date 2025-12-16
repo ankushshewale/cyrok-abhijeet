@@ -1,7 +1,7 @@
 import { Component, computed, effect, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { Title } from '@angular/platform-browser';
+import { Meta, Title } from '@angular/platform-browser';
 
 interface ServiceDetail {
   slug: string;
@@ -26,6 +26,7 @@ interface ServiceDetail {
 export class ServiceDetailComponent {
   private route = inject(ActivatedRoute);
   private title = inject(Title);
+  private meta = inject(Meta);
 
   private allServices: ServiceDetail[] = [
     {
@@ -204,7 +205,11 @@ export class ServiceDetailComponent {
     effect(() => {
       const service = this.currentService();
       if (service) {
-        this.title.setTitle(`${service.title} - Cyrok`);
+        this.title.setTitle(`${service.title} - Cyrok Services`);
+        this.meta.updateTag({
+          name: 'description',
+          content: service.overview,
+        });
       }
     });
   }

@@ -1,7 +1,7 @@
 import { Component, computed, effect, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { Title } from '@angular/platform-browser';
+import { Meta, Title } from '@angular/platform-browser';
 
 interface SolutionDetail {
   slug: string;
@@ -26,6 +26,7 @@ interface SolutionDetail {
 export class SolutionDetailComponent {
   private route = inject(ActivatedRoute);
   private title = inject(Title);
+  private meta = inject(Meta);
 
   private allSolutions: SolutionDetail[] = [
     {
@@ -255,7 +256,11 @@ export class SolutionDetailComponent {
     effect(() => {
       const solution = this.currentSolution();
       if (solution) {
-        this.title.setTitle(`${solution.title} - Cyrok`);
+        this.title.setTitle(`${solution.title} - Cyrok Solutions`);
+        this.meta.updateTag({
+          name: 'description',
+          content: solution.overview,
+        });
       }
     });
   }

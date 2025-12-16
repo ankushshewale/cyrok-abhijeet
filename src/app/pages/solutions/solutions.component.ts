@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-solutions',
@@ -10,6 +11,9 @@ import { RouterLink } from '@angular/router';
   styleUrls: ['./solutions.component.scss']
 })
 export class SolutionsComponent {
+  private title = inject(Title);
+  private meta = inject(Meta);
+
   solutions = [
     {
       title: 'Server Solutions',
@@ -98,4 +102,13 @@ export class SolutionsComponent {
       ]
     }
   ];
+
+  constructor() {
+    this.title.setTitle('Solutions - Cyrok');
+    this.meta.updateTag({
+      name: 'description',
+      content:
+        'Discover CYROK’s technology solutions across servers, networks, cloud, storage, cybersecurity, AV, surveillance, and IT rentals.',
+    });
+  }
 }

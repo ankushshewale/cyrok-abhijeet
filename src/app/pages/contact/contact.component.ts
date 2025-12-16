@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-contact',
@@ -19,6 +20,9 @@ export class ContactComponent {
     website: 'www.cyrok.com',
   };
 
+  private title = inject(Title);
+  private meta = inject(Meta);
+
   constructor(private fb: FormBuilder) {
     this.contactForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(2)]],
@@ -28,6 +32,13 @@ export class ContactComponent {
       subject: ['', [Validators.required]],
       message: ['', [Validators.required, Validators.minLength(10)]],
       inquiryType: ['general', Validators.required],
+    });
+
+    this.title.setTitle('Contact - Cyrok');
+    this.meta.updateTag({
+      name: 'description',
+      content:
+        'Contact CYROK Technologies for enterprise IT services, cloud solutions, cybersecurity, and custom high-performance PC builds.',
     });
   }
 

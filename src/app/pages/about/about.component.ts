@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-about',
@@ -9,6 +10,9 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./about.component.scss']
 })
 export class AboutComponent {
+  private title = inject(Title);
+  private meta = inject(Meta);
+
   coreValues = [
     {
       title: 'Secure',
@@ -38,4 +42,13 @@ export class AboutComponent {
     'Ethical delivery and transparent communication',
     'Mature ITIL-based operations model'
   ];
+
+  constructor() {
+    this.title.setTitle('About - Cyrok');
+    this.meta.updateTag({
+      name: 'description',
+      content:
+        'Learn about CYROK Technologies, our mission, vision, core values, and approach to secure, scalable, and ethical IT and custom PC engineering.',
+    });
+  }
 }
