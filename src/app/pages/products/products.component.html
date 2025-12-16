@@ -24,10 +24,10 @@
           <li *ngFor="let item of category.items">{{ item }}</li>
         </ul>
         <div class="product-cta" *ngIf="category.highlight">
-          <button class="btn btn-primary">Build Custom PC</button>
+          <a routerLink="/contact" class="btn btn-primary">Build Custom PC</a>
         </div>
         <div class="product-cta" *ngIf="!category.highlight">
-          <button class="btn btn-secondary">View Products</button>
+          <a routerLink="/products" class="btn btn-secondary">View Products</a>
         </div>
       </div>
     </div>

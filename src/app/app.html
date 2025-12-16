@@ -1,7 +1,7 @@
 <app-header></app-header>
 
-<main>
-  <router-outlet></router-outlet>
+<main [@routeFadeAnimation]="outlet?.isActivated ? prepareRoute(outlet) : 'root'">
+  <router-outlet #outlet="outlet"></router-outlet>
 </main>
 
 <app-scroll-to-top></app-scroll-to-top>

@@ -3,37 +3,37 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
 	{
 		path: '',
-		title: 'Cyrok - Home',
+		title: 'Home - Cyrok',
 		loadComponent: () => import('./pages/home/home.component').then(m => m.HomeComponent)
 	},
 	{
 		path: 'about',
-		title: 'Cyrok - About',
+		title: 'About - Cyrok',
 		loadComponent: () => import('./pages/about/about.component').then(m => m.AboutComponent)
 	},
 	{
 		path: 'services',
-		title: 'Cyrok - Services',
+		title: 'Services - Cyrok',
 		loadComponent: () => import('./pages/services/services.component').then(m => m.ServicesComponent)
 	},
 	{
 		path: 'solutions',
-		title: 'Cyrok - Solutions',
+		title: 'Solutions - Cyrok',
 		loadComponent: () => import('./pages/solutions/solutions.component').then(m => m.SolutionsComponent)
 	},
 	{
 		path: 'products',
-		title: 'Cyrok - Products',
+		title: 'Products - Cyrok',
 		loadComponent: () => import('./pages/products/products.component').then(m => m.ProductsComponent)
 	},
 	{
 		path: 'industries',
-		title: 'Cyrok - Industries',
+		title: 'Industries - Cyrok',
 		loadComponent: () => import('./pages/industries/industries.component').then(m => m.IndustriesComponent)
 	},
 	{
 		path: 'contact',
-		title: 'Cyrok - Contact',
+		title: 'Contact - Cyrok',
 		loadComponent: () => import('./pages/contact/contact.component').then(m => m.ContactComponent)
 	},
 	{ path: '**', redirectTo: '' }
