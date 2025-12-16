@@ -22,6 +22,11 @@ export const routes: Routes = [
 		loadComponent: () => import('./pages/solutions/solutions.component').then(m => m.SolutionsComponent)
 	},
 	{
+		path: 'solutions/:slug',
+		title: 'Solution Details - Cyrok',
+		loadComponent: () => import('./pages/solution-detail/solution-detail.component').then(m => m.SolutionDetailComponent)
+	},
+	{
 		path: 'products',
 		title: 'Products - Cyrok',
 		loadComponent: () => import('./pages/products/products.component').then(m => m.ProductsComponent)

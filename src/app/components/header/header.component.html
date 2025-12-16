@@ -13,7 +13,7 @@
           <a
             [routerLink]="item.route"
             routerLinkActive="active"
-            [routerLinkActiveOptions]="{ exact: true }"
+            [routerLinkActiveOptions]="{ exact: item.exact }"
             (click)="scrollToTop()"
           >
             {{ item.label }}
@@ -43,7 +43,7 @@
         <a
           [routerLink]="item.route"
           routerLinkActive="active"
-          [routerLinkActiveOptions]="{ exact: true }"
+          [routerLinkActiveOptions]="{ exact: item.exact }"
           (click)="scrollToTop(); closeMobileMenu()"
         >
           {{ item.label }}

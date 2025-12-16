@@ -24,7 +24,7 @@
           <li *ngFor="let item of solution.items">{{ item }}</li>
         </ul>
         <div class="solution-cta">
-          <a routerLink="/services" class="btn btn-secondary">Learn More</a>
+          <a [routerLink]="['/solutions', solution.slug]" class="btn btn-secondary">View Details</a>
         </div>
       </div>
     </div>

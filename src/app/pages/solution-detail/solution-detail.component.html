@@ -1,0 +1,71 @@
+<section class="solution-hero" *ngIf="currentSolution(); else notFound">
+  <div class="container">
+    <a routerLink="/solutions" class="back-link">← Back to all solutions</a>
+
+    <div class="hero-content">
+      <div class="hero-icon">{{ currentSolution()!.icon }}</div>
+      <h1>{{ currentSolution()!.title }}</h1>
+      <h2>{{ currentSolution()!.heroSubtitle }}</h2>
+      <p class="hero-overview">
+        {{ currentSolution()!.overview }}
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="solution-details" *ngIf="currentSolution()">
+  <div class="container">
+    <div class="details-grid">
+      <div class="card">
+        <h3>Who This Is For</h3>
+        <ul>
+          <li *ngFor="let item of currentSolution()!.idealFor">
+            {{ item }}
+          </li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>{{ currentSolution()!.capabilitiesTitle }}</h3>
+        <ul>
+          <li *ngFor="let cap of currentSolution()!.capabilities">
+            {{ cap }}
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="outcomes card">
+      <h3>{{ currentSolution()!.outcomesTitle }}</h3>
+      <ul>
+        <li *ngFor="let outcome of currentSolution()!.outcomes">
+          {{ outcome }}
+        </li>
+      </ul>
+    </div>
+
+    <div class="cta">
+      <h3>Discuss {{ currentSolution()!.title }} for your environment</h3>
+      <p>
+        Our team can review your current setup and design a roadmap tailored to
+        your business goals and timelines.
+      </p>
+      <div class="cta-buttons">
+        <a routerLink="/contact" class="btn btn-primary">Talk to Our Experts</a>
+        <a routerLink="/services" class="btn btn-secondary">Explore Related Services</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<ng-template #notFound>
+  <section class="solution-not-found">
+    <div class="container">
+      <h1>Solution not found</h1>
+      <p>The solution you’re looking for does not exist or is no longer available.</p>
+      <a routerLink="/solutions" class="btn btn-primary">Back to Solutions</a>
+    </div>
+  </section>
+</ng-template>
+
+

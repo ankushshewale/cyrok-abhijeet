@@ -13,6 +13,7 @@ export class SolutionsComponent {
   solutions = [
     {
       title: 'Server Solutions',
+      slug: 'server-solutions',
       icon: '🖥️',
       description: 'High-performance server deployment and virtualization',
       items: [
@@ -23,6 +24,7 @@ export class SolutionsComponent {
     },
     {
       title: 'Network Solutions',
+      slug: 'network-solutions',
       icon: '🌐',
       description: 'Comprehensive networking infrastructure',
       items: [
@@ -32,6 +34,7 @@ export class SolutionsComponent {
     },
     {
       title: 'Cloud Solutions',
+      slug: 'cloud-solutions',
       icon: '☁️',
       description: 'Cloud migration and managed cloud operations',
       items: [
@@ -43,6 +46,7 @@ export class SolutionsComponent {
     },
     {
       title: 'Storage Solutions',
+      slug: 'storage-solutions',
       icon: '💾',
       description: 'Enterprise storage and backup solutions',
       items: [
@@ -52,6 +56,7 @@ export class SolutionsComponent {
     },
     {
       title: 'Cybersecurity Solutions',
+      slug: 'cybersecurity-solutions',
       icon: '🔐',
       description: 'Advanced security and threat protection',
       items: [
@@ -63,6 +68,7 @@ export class SolutionsComponent {
     },
     {
       title: 'Audio-Visual Solutions',
+      slug: 'audio-visual-solutions',
       icon: '📹',
       description: 'Smart AV integration for modern spaces',
       items: [
@@ -73,6 +79,7 @@ export class SolutionsComponent {
     },
     {
       title: 'Surveillance & Biometric',
+      slug: 'surveillance-biometric',
       icon: '🎥',
       description: 'Security and access control systems',
       items: [
@@ -82,6 +89,7 @@ export class SolutionsComponent {
     },
     {
       title: 'Rental & Refurbished Solutions',
+      slug: 'rental-refurbished',
       icon: '🔄',
       description: 'Flexible IT equipment rental options',
       items: [

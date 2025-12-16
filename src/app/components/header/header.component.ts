@@ -14,13 +14,15 @@ export class HeaderComponent {
   isScrolled = signal(false);
 
   navigationItems = [
-    { label: 'Home', route: '/' },
-    { label: 'About', route: '/about' },
-    { label: 'Services', route: '/services' },
-    { label: 'Solutions', route: '/solutions' },
-    { label: 'Products', route: '/products' },
-    { label: 'Industries', route: '/industries' },
-    { label: 'Contact', route: '/contact' }
+    { label: 'Home', route: '/', exact: true },
+    { label: 'About', route: '/about', exact: true },
+    { label: 'Services', route: '/services', exact: true },
+    // Keep Solutions active for /solutions and any child detail routes
+    { label: 'Solutions', route: '/solutions', exact: false },
+    { label: 'Products', route: '/products', exact: true },
+    // Keep Industries active for /industries and any child detail routes
+    { label: 'Industries', route: '/industries', exact: false },
+    { label: 'Contact', route: '/contact', exact: true }
   ];
 
   @HostListener('window:scroll', [])
