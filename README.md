@@ -80,22 +80,32 @@ Starts the Node.js Express server with the SSR build (requires building first).
 ```
 src/
 ├── app/
-│   ├── components/          # Reusable components
-│   │   ├── header/         # Navigation header
-│   │   └── footer/         # Site footer
-│   ├── pages/              # Page components
-│   │   ├── home/           # Homepage
-│   │   ├── about/          # About us
-│   │   ├── services/       # Services page
-│   │   ├── solutions/      # Solutions page
-│   │   ├── products/       # Products page
-│   │   ├── industries/     # Industries page
-│   │   └── contact/        # Contact page
-│   ├── app.ts              # Root component
-│   ├── app.routes.ts       # Application routes
-│   └── app.config.ts       # App configuration
-├── assets/                 # Static assets (images, etc.)
-└── styles.css              # Global styles
+│   ├── components/              # Reusable layout components
+│   │   ├── header/              # Navigation header
+│   │   ├── footer/              # Site footer
+│   │   └── scroll-to-top/       # Scroll-to-top button
+│   ├── pages/                   # Page-level standalone components
+│   │   ├── home/                # Homepage
+│   │   ├── about/               # About us
+│   │   ├── services/            # Services overview
+│   │   ├── service-detail/      # /services/:slug detail pages
+│   │   ├── solutions/           # Solutions overview
+│   │   ├── solution-detail/     # /solutions/:slug detail pages
+│   │   ├── products/            # Products page
+│   │   ├── industries/          # Industries overview
+│   │   ├── industry-detail/     # /industries/:slug detail pages
+│   │   └── contact/             # Contact page with reactive form
+│   ├── app.ts                   # Root application component
+│   ├── app.html                 # Root application template
+│   ├── app.routes.ts            # Client-side routes
+│   ├── app.routes.server.ts     # Server-side render mode config
+│   ├── app.config.ts            # Client app configuration
+│   └── app.config.server.ts     # Server app configuration
+├── assets/                      # Static assets (images, etc.)
+├── styles.scss                  # Global styles & design tokens
+├── main.ts                      # Browser bootstrap
+├── main.server.ts               # Server bootstrap
+└── server.ts                    # Express SSR entrypoint
 ```
 
 ## 🌐 Available Routes
@@ -103,9 +113,12 @@ src/
 - `/` - Homepage
 - `/about` - About CYROK Technologies
 - `/services` - Services overview
+- `/services/:slug` - Individual service detail pages (SSR, server-rendered)
 - `/solutions` - Solutions & offerings
+- `/solutions/:slug` - Individual solution detail pages (SSR, server-rendered)
 - `/products` - Products catalog
 - `/industries` - Industries we serve
+- `/industries/:slug` - Individual industry detail pages (SSR, server-rendered)
 - `/contact` - Contact us
 
 ## 📝 Key Features
@@ -120,6 +133,13 @@ src/
 - **Angular Config**: `angular.json`
 - **TypeScript Config**: `tsconfig.json`
 - **Package Manager**: npm (configured in `package.json`)
+- **Routing**:
+  - Static routes like `/services`, `/solutions`, `/industries` are prerendered.
+  - Dynamic detail routes `/services/:slug`, `/solutions/:slug`, `/industries/:slug` are configured with `RenderMode.Server` in `app.routes.server.ts` to avoid prerender errors.
+- **Styling & Design System**:
+  - Global tokens and theme variables are defined in `styles.scss` (colors, spacing, typography, shadows).
+  - Buttons reuse shared classes `.btn`, `.btn-primary`, `.btn-secondary`, and size modifiers such as `.btn-large` / `.btn-small`.
+  - Card-like UI uses the shared `.card` class; feature-specific cards extend this rather than redefining base colors.
 
 ## 📄 License
 
