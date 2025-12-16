@@ -16,7 +16,8 @@ export class HeaderComponent {
   navigationItems = [
     { label: 'Home', route: '/', exact: true },
     { label: 'About', route: '/about', exact: true },
-    { label: 'Services', route: '/services', exact: true },
+    // Keep Services active for /services and any child detail routes
+    { label: 'Services', route: '/services', exact: false },
     // Keep Solutions active for /solutions and any child detail routes
     { label: 'Solutions', route: '/solutions', exact: false },
     { label: 'Products', route: '/products', exact: true },

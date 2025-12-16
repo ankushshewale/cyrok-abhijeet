@@ -11,6 +11,7 @@ export const serverRoutes: ServerRoute[] = [
   { path: 'contact', renderMode: RenderMode.Prerender },
 
   // Dynamic routes with parameters should not be prerendered
+  { path: 'services/:slug', renderMode: RenderMode.Server },
   { path: 'industries/:slug', renderMode: RenderMode.Server },
   { path: 'solutions/:slug', renderMode: RenderMode.Server },
 

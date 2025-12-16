@@ -17,6 +17,11 @@ export const routes: Routes = [
 		loadComponent: () => import('./pages/services/services.component').then(m => m.ServicesComponent)
 	},
 	{
+		path: 'services/:slug',
+		title: 'Service Details - Cyrok',
+		loadComponent: () => import('./pages/service-detail/service-detail.component').then(m => m.ServiceDetailComponent)
+	},
+	{
 		path: 'solutions',
 		title: 'Solutions - Cyrok',
 		loadComponent: () => import('./pages/solutions/solutions.component').then(m => m.SolutionsComponent)

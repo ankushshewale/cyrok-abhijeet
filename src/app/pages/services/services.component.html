@@ -38,8 +38,8 @@
           </div>
         </div>
 
-        <div class="service-cta" *ngIf="service.highlight">
-          <a routerLink="/contact" class="btn btn-primary">Request Custom PC Quote</a>
+        <div class="service-cta">
+          <a [routerLink]="['/services', service.slug]" class="btn btn-secondary">View Details</a>
         </div>
       </div>
     </div>

@@ -13,6 +13,7 @@ export class ServicesComponent {
   services = [
     {
       id: 'managed-it',
+      slug: 'managed-it-services',
       title: 'Managed IT Services',
       icon: '🛡️',
       description: 'Comprehensive IT management with 24×7 monitoring, support, and security',
@@ -28,6 +29,7 @@ export class ServicesComponent {
     },
     {
       id: 'amc-breakfix',
+      slug: 'amc-break-fix',
       title: 'AMC & Break-Fix Services',
       icon: '🔧',
       description: 'Preventive maintenance and emergency repair services',
@@ -40,6 +42,7 @@ export class ServicesComponent {
     },
     {
       id: 'infrastructure',
+      slug: 'infrastructure-management',
       title: 'Infrastructure Management',
       icon: '⚙️',
       description: 'Server, network, and storage infrastructure optimization',
@@ -51,6 +54,7 @@ export class ServicesComponent {
     },
     {
       id: 'bms',
+      slug: 'building-management-system',
       title: 'Building Management System (BMS)',
       icon: '🏢',
       description: 'Smart facility monitoring and automation',
@@ -62,6 +66,7 @@ export class ServicesComponent {
     },
     {
       id: 'procurement',
+      slug: 'it-procurement-billing',
       title: 'IT Procurement & Billing',
       icon: '📋',
       description: 'Corporate IT hardware sourcing and vendor management',
@@ -73,6 +78,7 @@ export class ServicesComponent {
     },
     {
       id: 'custom-pc',
+      slug: 'custom-high-performance-pc',
       title: 'Custom High-Performance PC Building',
       icon: '💻',
       description: 'CYROK engineers high-performance PCs customized for professional and gaming needs',

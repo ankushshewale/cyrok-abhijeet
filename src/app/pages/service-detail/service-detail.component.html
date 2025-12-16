@@ -1,0 +1,80 @@
+<section class="service-hero" *ngIf="currentService(); else notFound">
+  <div class="container">
+    <a routerLink="/services" class="back-link">← Back to all services</a>
+
+    <div class="hero-content">
+      <div class="hero-icon">{{ currentService()!.icon }}</div>
+      <h1>{{ currentService()!.title }}</h1>
+      <h2>{{ currentService()!.heroSubtitle }}</h2>
+      <p class="hero-overview">
+        {{ currentService()!.overview }}
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="service-details" *ngIf="currentService()">
+  <div class="container">
+    <div class="details-grid">
+      <div class="card">
+        <h3>When This Service Helps</h3>
+        <ul>
+          <li *ngFor="let s of currentService()!.scenarios">
+            {{ s }}
+          </li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>{{ currentService()!.whatWeDoTitle }}</h3>
+        <ul>
+          <li *ngFor="let item of currentService()!.whatWeDo">
+            {{ item }}
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="benefits card">
+      <h3>{{ currentService()!.benefitsTitle }}</h3>
+      <ul>
+        <li *ngFor="let benefit of currentService()!.benefits">
+          {{ benefit }}
+        </li>
+      </ul>
+    </div>
+
+    <div class="cta">
+      <h3>Discuss {{ currentService()!.title }} for your organization</h3>
+      <p>
+        Share your current challenges and goals, and our team will recommend a
+        roadmap and engagement model that fits best.
+      </p>
+      <div class="cta-buttons">
+        <a
+          routerLink="/contact"
+          class="btn btn-primary"
+        >
+          {{
+            currentService()!.slug === 'custom-high-performance-pc'
+              ? 'Request Custom PC Quote'
+              : 'Talk to Our Team'
+          }}
+        </a>
+        <a routerLink="/solutions" class="btn btn-secondary">Explore Related Solutions</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<ng-template #notFound>
+  <section class="service-not-found">
+    <div class="container">
+      <h1>Service not found</h1>
+      <p>The service you’re looking for does not exist or is no longer available.</p>
+      <a routerLink="/services" class="btn btn-primary">Back to Services</a>
+    </div>
+  </section>
+</ng-template>
+
+
