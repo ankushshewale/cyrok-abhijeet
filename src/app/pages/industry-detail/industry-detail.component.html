@@ -1,0 +1,63 @@
+<section class="industry-hero" *ngIf="currentIndustry(); else notFound">
+  <div class="container">
+    <a routerLink="/industries" class="back-link">← Back to all industries</a>
+
+    <div class="hero-content">
+      <h1>{{ currentIndustry()!.name }} Solutions</h1>
+      <h2>{{ currentIndustry()!.tagline }}</h2>
+      <p class="hero-description">
+        {{ currentIndustry()!.shortDescription }}
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="industry-details" *ngIf="currentIndustry()">
+  <div class="container">
+    <div class="details-grid">
+      <div class="card">
+        <h3>Challenges</h3>
+        <ul>
+          <li *ngFor="let c of currentIndustry()!.challenges">
+            {{ c }}
+          </li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>CYROK Solutions</h3>
+        <ul>
+          <li *ngFor="let s of currentIndustry()!.solutions">
+            {{ s }}
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="case-study card">
+      <h3>{{ currentIndustry()!.caseStudyTitle }}</h3>
+      <p>{{ currentIndustry()!.caseStudySummary }}</p>
+    </div>
+
+    <div class="cta">
+      <h3>Ready to discuss your {{ currentIndustry()!.name }} IT needs?</h3>
+      <p>Speak with our experts to design a secure, scalable, and future-ready solution.</p>
+      <div class="cta-buttons">
+        <a routerLink="/contact" class="btn btn-primary">Talk to Us</a>
+        <a routerLink="/services" class="btn btn-secondary">Explore Services</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<ng-template #notFound>
+  <section class="industry-not-found">
+    <div class="container">
+      <h1>Industry not found</h1>
+      <p>The requested industry does not exist or is no longer available.</p>
+      <a routerLink="/industries" class="btn btn-primary">Back to Industries</a>
+    </div>
+  </section>
+</ng-template>
+
+

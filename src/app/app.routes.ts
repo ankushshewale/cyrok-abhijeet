@@ -32,6 +32,11 @@ export const routes: Routes = [
 		loadComponent: () => import('./pages/industries/industries.component').then(m => m.IndustriesComponent)
 	},
 	{
+		path: 'industries/:slug',
+		title: 'Industry Details - Cyrok',
+		loadComponent: () => import('./pages/industry-detail/industry-detail.component').then(m => m.IndustryDetailComponent)
+	},
+	{
 		path: 'contact',
 		title: 'Contact - Cyrok',
 		loadComponent: () => import('./pages/contact/contact.component').then(m => m.ContactComponent)
