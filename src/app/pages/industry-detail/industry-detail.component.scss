@@ -1,42 +1,49 @@
 .industry-hero {
-  padding: 4rem 0 2rem;
-  background: radial-gradient(circle at top left, #0f172a, #020617);
-  color: #e5e7eb;
+  padding: var(--spacing-5xl) 0 var(--spacing-3xl);
+  background: linear-gradient(
+    135deg,
+    rgba(0, 209, 255, 0.12) 0%,
+    rgba(7, 18, 40, 0.95) 100%
+  );
+  color: var(--color-text-primary);
 
   .hero-content {
     max-width: 720px;
 
     h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.75rem;
-      color: #f9fafb;
+      font-size: var(--font-size-4xl);
+      margin-bottom: var(--spacing-sm);
+      color: var(--color-white);
+      text-transform: uppercase;
+      letter-spacing: 2px;
     }
 
     h2 {
-      font-size: 1.4rem;
-      font-weight: 500;
-      margin-bottom: 1rem;
+      font-size: var(--font-size-xl);
+      font-weight: var(--font-weight-medium);
+      margin-bottom: var(--spacing-lg);
       color: var(--color-cyan);
     }
 
     .hero-description {
-      font-size: 1rem;
-      color: #d1d5db;
-      line-height: 1.6;
+      font-size: var(--font-size-lg);
+      color: var(--color-text-primary);
+      line-height: 1.8;
+      max-width: 720px;
     }
   }
 }
 
 .industry-details {
-  padding: 3rem 0 4rem;
-  background: #020617;
-  color: #e5e7eb;
+  padding: var(--spacing-4xl) 0 var(--spacing-5xl);
+  background: var(--color-dark-blue);
+  color: var(--color-text-primary);
 
   .details-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.75rem;
-    margin-bottom: 2.5rem;
+    gap: var(--spacing-2xl);
+    margin-bottom: var(--spacing-3xl);
 
     @media (max-width: 768px) {
       grid-template-columns: 1fr;
@@ -45,8 +52,9 @@
 
   .card {
     h3 {
-      font-size: 1.25rem;
-      margin-bottom: 1rem;
+      font-size: var(--font-size-xl);
+      margin-bottom: var(--spacing-md);
+      color: var(--color-white);
     }
 
     ul {
@@ -56,14 +64,16 @@
 
       li {
         position: relative;
-        padding-left: 1.25rem;
-        margin-bottom: 0.7rem;
-        font-size: 0.95rem;
+        padding-left: var(--spacing-xl);
+        margin-bottom: var(--spacing-sm);
+        font-size: var(--font-size-base);
+        color: var(--color-text-primary);
 
         &::before {
           content: '•';
           position: absolute;
           left: 0;
+          top: 0.15rem;
           color: var(--color-cyan);
         }
       }
@@ -71,15 +81,17 @@
   }
 
   .case-study {
-    margin-bottom: 2.5rem;
+    margin-bottom: var(--spacing-3xl);
 
     h3 {
-      margin-bottom: 0.75rem;
+      margin-bottom: var(--spacing-md);
+      color: var(--color-white);
     }
 
     p {
-      color: #d1d5db;
-      font-size: 0.95rem;
+      color: var(--color-text-primary);
+      font-size: var(--font-size-base);
+      line-height: 1.8;
     }
   }
 
@@ -87,39 +99,46 @@
     text-align: center;
 
     h3 {
-      font-size: 1.4rem;
-      margin-bottom: 0.75rem;
-      color: #f9fafb;
+      font-size: var(--font-size-2xl);
+      margin-bottom: var(--spacing-md);
+      color: var(--color-white);
     }
 
     p {
-      color: #9ca3af;
-      margin-bottom: 1.5rem;
+      color: var(--color-text-secondary);
+      font-size: var(--font-size-base);
+      margin-bottom: var(--spacing-xl);
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.8;
     }
 
     .cta-buttons {
       display: flex;
       justify-content: center;
-      gap: 1rem;
+      gap: var(--spacing-lg);
       flex-wrap: wrap;
     }
   }
 }
 
 .industry-not-found {
-  padding: 4rem 0;
-  background: #020617;
-  color: #e5e7eb;
+  padding: var(--spacing-5xl) 0;
+  background: var(--color-dark-blue);
+  color: var(--color-text-primary);
   text-align: center;
 
   h1 {
-    font-size: 2rem;
-    margin-bottom: 0.75rem;
+    font-size: var(--font-size-3xl);
+    margin-bottom: var(--spacing-md);
+    color: var(--color-white);
   }
 
   p {
-    color: #9ca3af;
-    margin-bottom: 1.5rem;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-xl);
+    font-size: var(--font-size-base);
   }
 
   .btn-primary {

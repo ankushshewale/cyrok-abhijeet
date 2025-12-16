@@ -1,21 +1,3 @@
-.page-header {
-  background: linear-gradient(135deg, rgba(0, 209, 255, 0.1) 0%, rgba(7, 18, 40, 0.9) 100%);
-  padding: var(--spacing-5xl) 0;
-  text-align: center;
-}
-
-.page-header h1 {
-  font-size: var(--font-size-5xl);
-  margin-bottom: var(--spacing-md);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
-.page-header p {
-  font-size: var(--font-size-xl);
-  color: var(--color-text-secondary);
-}
-
 .solutions-section {
   padding: var(--spacing-5xl) 0;
 }
@@ -67,23 +49,23 @@
   padding: 0;
   margin: 0 0 var(--spacing-lg) 0;
   flex: 1;
-}
 
-.solution-list li {
-  padding: var(--spacing-sm) 0;
-  padding-left: var(--spacing-xl);
-  position: relative;
-  color: var(--color-text-primary);
-  line-height: 1.6;
-}
+  li {
+    padding: var(--spacing-sm) 0;
+    padding-left: var(--spacing-xl);
+    position: relative;
+    color: var(--color-text-primary);
+    line-height: 1.6;
+  }
 
-.solution-list li::before {
-  content: '✓';
-  position: absolute;
-  left: 0;
-  color: var(--color-cyan);
-  font-weight: bold;
-  font-size: 1.2rem;
+  li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--color-cyan);
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
 }
 
 .solution-cta {
@@ -95,16 +77,16 @@
   background: linear-gradient(135deg, rgba(0, 209, 255, 0.05) 0%, rgba(7, 18, 40, 0.9) 100%);
   text-align: center;
   padding: var(--spacing-5xl) 0;
-}
 
-.cta-section h2 {
-  margin-bottom: var(--spacing-md);
-}
+  h2 {
+    margin-bottom: var(--spacing-md);
+  }
 
-.cta-section p {
-  font-size: var(--font-size-lg);
-  color: var(--color-text-secondary);
-  margin-bottom: var(--spacing-xl);
+  p {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-xl);
+  }
 }
 
 .cta-buttons {
@@ -117,10 +99,6 @@
 @media (max-width: 768px) {
   .solutions-grid {
     grid-template-columns: 1fr;
-  }
-
-  .page-header h1 {
-    font-size: var(--font-size-3xl);
   }
 
   .cta-buttons {

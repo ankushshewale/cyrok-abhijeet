@@ -23,8 +23,8 @@ export class ContactComponent {
 
   companyInfo = {
     name: 'CYROK Technologies Pvt. Ltd.',
-    email: 'info@cyrok.com',
-    website: 'www.cyrok.com',
+    email: 'info@cyrok.net',
+    website: 'www.cyrok.net',
   };
 
   private title = inject(Title);

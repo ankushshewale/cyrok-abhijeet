@@ -645,3 +645,36 @@ section {
     }
   }
 }
+
+/* Page Header - Global style for all pages */
+.page-header {
+  background: linear-gradient(135deg, rgba(0, 209, 255, 0.1) 0%, rgba(7, 18, 40, 0.9) 100%);
+  padding: var(--spacing-5xl) 0;
+  text-align: center;
+
+  h1 {
+    font-size: var(--font-size-5xl);
+    margin-bottom: var(--spacing-md);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--color-white);
+  }
+
+  p {
+    font-size: var(--font-size-xl);
+    color: var(--color-text-secondary);
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 768px) {
+    padding: var(--spacing-4xl) 0;
+
+    h1 {
+      font-size: var(--font-size-3xl);
+    }
+
+    p {
+      font-size: var(--font-size-lg);
+    }
+  }
+}
