@@ -18,7 +18,6 @@ export const routes: Routes = [
 	},
 	{
 		path: 'services/:slug',
-		title: 'Service Details - Cyrok',
 		loadComponent: () => import('./pages/service-detail/service-detail.component').then(m => m.ServiceDetailComponent)
 	},
 	{
@@ -28,7 +27,6 @@ export const routes: Routes = [
 	},
 	{
 		path: 'solutions/:slug',
-		title: 'Solution Details - Cyrok',
 		loadComponent: () => import('./pages/solution-detail/solution-detail.component').then(m => m.SolutionDetailComponent)
 	},
 	{
@@ -43,7 +41,6 @@ export const routes: Routes = [
 	},
 	{
 		path: 'industries/:slug',
-		title: 'Industry Details - Cyrok',
 		loadComponent: () => import('./pages/industry-detail/industry-detail.component').then(m => m.IndustryDetailComponent)
 	},
 	{

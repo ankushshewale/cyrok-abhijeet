@@ -1,6 +1,7 @@
-import { Component, computed, inject, signal } from '@angular/core';
+import { Component, computed, effect, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 interface IndustryDetail {
   slug: string;
@@ -22,6 +23,7 @@ interface IndustryDetail {
 })
 export class IndustryDetailComponent {
   private route = inject(ActivatedRoute);
+  private title = inject(Title);
 
   private allIndustries: IndustryDetail[] = [
     {
@@ -164,6 +166,13 @@ export class IndustryDetailComponent {
     this.route.paramMap.subscribe((params) => {
       const slug = params.get('slug');
       this.industrySlug.set(slug);
+    });
+
+    effect(() => {
+      const industry = this.currentIndustry();
+      if (industry) {
+        this.title.setTitle(`${industry.name} - Cyrok`);
+      }
     });
   }
 }

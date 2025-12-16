@@ -1,6 +1,7 @@
-import { Component, computed, inject, signal } from '@angular/core';
+import { Component, computed, effect, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 interface ServiceDetail {
   slug: string;
@@ -24,6 +25,7 @@ interface ServiceDetail {
 })
 export class ServiceDetailComponent {
   private route = inject(ActivatedRoute);
+  private title = inject(Title);
 
   private allServices: ServiceDetail[] = [
     {
@@ -197,6 +199,13 @@ export class ServiceDetailComponent {
     this.route.paramMap.subscribe((params) => {
       const slug = params.get('slug');
       this.serviceSlug.set(slug);
+    });
+
+    effect(() => {
+      const service = this.currentService();
+      if (service) {
+        this.title.setTitle(`${service.title} - Cyrok`);
+      }
     });
   }
 }
