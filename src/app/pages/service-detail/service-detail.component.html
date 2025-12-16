@@ -1,6 +1,13 @@
 <section class="service-hero" *ngIf="currentService(); else notFound">
   <div class="container">
-    <a routerLink="/services" class="back-link">← Back to all services</a>
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a routerLink="/">Home</a></li>
+        <li><a routerLink="/services">Services</a></li>
+        <li aria-current="page">{{ currentService()!.title }}</li>
+      </ol>
+    </nav>
 
     <div class="hero-content">
       <div class="hero-icon">{{ currentService()!.icon }}</div>

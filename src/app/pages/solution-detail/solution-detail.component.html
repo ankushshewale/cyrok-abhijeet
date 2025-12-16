@@ -1,6 +1,13 @@
 <section class="solution-hero" *ngIf="currentSolution(); else notFound">
   <div class="container">
-    <a routerLink="/solutions" class="back-link">← Back to all solutions</a>
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a routerLink="/">Home</a></li>
+        <li><a routerLink="/solutions">Solutions</a></li>
+        <li aria-current="page">{{ currentSolution()!.title }}</li>
+      </ol>
+    </nav>
 
     <div class="hero-content">
       <div class="hero-icon">{{ currentSolution()!.icon }}</div>

@@ -1,6 +1,13 @@
 <section class="industry-hero" *ngIf="currentIndustry(); else notFound">
   <div class="container">
-    <a routerLink="/industries" class="back-link">← Back to all industries</a>
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a routerLink="/">Home</a></li>
+        <li><a routerLink="/industries">Industries</a></li>
+        <li aria-current="page">{{ currentIndustry()!.name }}</li>
+      </ol>
+    </nav>
 
     <div class="hero-content">
       <h1>{{ currentIndustry()!.name }} Solutions</h1>
