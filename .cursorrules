@@ -1,0 +1,68 @@
+## Project-wide conventions
+
+- **Global design tokens**
+  - Always use the CSS variables from `styles.scss` for colors, font sizes, spacing, and shadows (e.g. `var(--color-cyan)`, `var(--color-text-primary)`).
+  - Do **not** hard-code Tailwind-style hex colors in component styles unless there is a very strong reason.
+
+- **Buttons**
+  - Reuse the global `.btn`, `.btn-primary`, `.btn-secondary`, `.btn-large`, `.btn-small` classes defined in `styles.scss`.
+  - Component-specific SCSS must **not** override the core button colors or basic styles; only adjust layout (e.g. flex, margins, alignment).
+
+- **Cards**
+  - Use the global `.card` class for all card-like elements so they share the same border, background, and hover behavior.
+  - Component styles may extend cards (e.g. `.service-card.card`, `.solution-card.card`) but should not redefine base colors unless you are creating a special "highlight" card state (see existing highlight-card patterns).
+
+## Routing & navigation
+
+- **Dynamic detail routes**
+  - Detail pages for domains like services, solutions, and industries must follow the pattern:
+    - `/services/:slug` → `ServiceDetailComponent`
+    - `/solutions/:slug` → `SolutionDetailComponent`
+    - `/industries/:slug` → `IndustryDetailComponent`
+  - For any new dynamic route with parameters, **do not** use `RenderMode.Prerender`. Instead:
+    - Add a `RenderMode.Server` entry in `app.routes.server.ts` (e.g. `{ path: 'feature/:slug', renderMode: RenderMode.Server }`).
+    - Only plain, non-parameter routes (like `/services`, `/solutions`) are `RenderMode.Prerender`.
+
+- **Header active nav behavior**
+  - The header nav uses `routerLinkActive` with `routerLinkActiveOptions="{ exact: item.exact }"`.
+  - Parent menu items that have detail routes (currently `Services`, `Solutions`, `Industries`) **must** set `exact: false` in `navigationItems` so they stay active on their `/:slug` children.
+  - Only standalone pages like `Home`, `About`, `Products`, `Contact` should use `exact: true`.
+
+## Detail page patterns
+
+- **Hero sections**
+  - Use a `.service-hero`, `.solution-hero`, or `.industry-hero` section with:
+    - A back link (`← Back to all ...`).
+    - `.hero-content` containing `h1`, `h2`, and a description.
+  - `h2` under `.hero-content` should use `color: var(--color-cyan);` to match the theme.
+
+- **Content structure**
+  - Keep detail pages structured into:
+    - "When This … Helps" / "Who This Is For" / "Challenges"
+    - "What We Do" / "CYROK Solutions" / "Capabilities"
+    - "Business Outcomes" / "Case Study"
+  - Use unordered lists (`ul > li`) with themed bullets (`color: var(--color-cyan)`) instead of ad-hoc paragraph lists.
+
+- **CTAs**
+  - Each detail page should end with a CTA section that:
+    - Uses a primary button that navigates to `/contact` with a clear label (e.g. "Talk to Our Team", "Request Custom PC Quote").
+    - Optionally includes a secondary button linking to a relevant overview page (e.g. `/services` or `/solutions`).
+  - Special-case CTAs (like the Custom High-Performance PC quote) should be implemented via conditional labels on the **same** primary button, not extra unique button styles.
+
+## Known pitfalls to avoid (based on past issues)
+
+- **Prerender errors on Netlify**
+  - Do **not** leave the server routes catch-all (`'**'`) as `RenderMode.Prerender`. It must be `RenderMode.Server`.
+  - Any time a new `/:slug` route is added, also:
+    - Add a corresponding `RenderMode.Server` entry.
+    - Ensure there is **no** `RenderMode.Prerender` entry that includes parameters.
+
+- **Broken active nav states**
+  - If a new parent route is given children with parameters (e.g. `/blog` and `/blog/:slug`), update `navigationItems` so:
+    - `{ label: 'Blog', route: '/blog', exact: false }`.
+
+- **Inconsistent styling**
+  - Avoid redefining `.btn`, `.card`, or global typography rules in feature SCSS; extend them instead.
+  - For hero headings, rely on global `h1`/`h2` typography from `styles.scss` and only tweak spacing or color within the theme tokens.
+
+
