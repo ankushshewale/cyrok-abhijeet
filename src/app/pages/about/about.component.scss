@@ -44,8 +44,9 @@
 }
 
 .step-circle {
-  width: 60px;
-  height: 60px;
+  --stepCircleSize: 60px;
+  width: var(--stepCircleSize);
+  height: var(--stepCircleSize);
   border-radius: 50%;
   background: linear-gradient(135deg, var(--color-cyan), var(--color-orange));
   color: var(--color-dark-blue);
