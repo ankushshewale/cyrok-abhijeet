@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   
   currentSlideIndex = 0;
   private autoAdvanceInterval: any;
-  private readonly SLIDE_DURATION = 5000; // 5 seconds per slide
+  private readonly SLIDE_DURATION = 50000000; // 5 seconds per slide
 
   // Key Services
   keyServices = [
