@@ -186,9 +186,11 @@
       <h2>Across Multiple Sectors</h2>
     </div>
     <div class="grid grid-cols-3">
-      <div class="industry-card" *ngFor="let industry of industries">
-        <div class="industry-icon">{{ industry.icon }}</div>
-        <h4>{{ industry.name }}</h4>
+      <div class="industry-card" *ngFor="let industry of industries; let last = last">
+        <div class="industry-icon" *ngIf="!last">{{ industry.icon }}</div>
+        <div class="industry-icon" *ngIf="last">➕</div>
+        <h4 *ngIf="!last">{{ industry.name }}</h4>
+        <h4 *ngIf="last">Many more</h4>
       </div>
     </div>
   </div>
