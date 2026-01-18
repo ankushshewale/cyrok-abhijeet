@@ -272,74 +272,46 @@
   }
 }
 
-// Radio button checked states (must be outside nesting due to sibling selector)
-#hero-slide-0:checked ~ .hero-slider__wrapper .hero-slider__slide[data-slide-index="0"],
-#hero-slide-1:checked ~ .hero-slider__wrapper .hero-slider__slide[data-slide-index="1"],
-#hero-slide-2:checked ~ .hero-slider__wrapper .hero-slider__slide[data-slide-index="2"],
-#hero-slide-3:checked ~ .hero-slider__wrapper .hero-slider__slide[data-slide-index="3"] {
-  transform: translateX(0);
-  opacity: 1;
-  pointer-events: auto;
-  z-index: 2;
+// Radio button checked states - consolidated
+@for $i from 0 through 3 {
+  #hero-slide-#{$i}:checked ~ .hero-slider__wrapper .hero-slider__slide[data-slide-index="#{$i}"] {
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 2;
+  }
+  #hero-slide-#{$i}:checked ~ .hero-slider__wrapper .hero-slider__slide:not([data-slide-index="#{$i}"]) {
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1;
+  }
+  #hero-slide-#{$i}:checked ~ .hero-slider__indicators .hero-slider__indicator[data-indicator-index="#{$i}"] {
+    background-color: var(--color-cyan);
+    box-shadow: 0 0 10px rgba(0, 209, 255, 0.5);
+  }
 }
 
-#hero-slide-0:checked ~ .hero-slider__wrapper .hero-slider__slide:not([data-slide-index="0"]),
-#hero-slide-1:checked ~ .hero-slider__wrapper .hero-slider__slide:not([data-slide-index="1"]),
-#hero-slide-2:checked ~ .hero-slider__wrapper .hero-slider__slide:not([data-slide-index="2"]),
-#hero-slide-3:checked ~ .hero-slider__wrapper .hero-slider__slide:not([data-slide-index="3"]) {
-  opacity: 0;
-  pointer-events: none;
-  z-index: 1;
+// Slide transitions for non-active slides
+@for $i from 1 through 3 {
+  #hero-slide-#{$i}:checked ~ .hero-slider__wrapper .hero-slider__slide[data-slide-index="0"] {
+    opacity: 0;
+    transform: translateX(-100%);
+    pointer-events: none;
+  }
 }
 
-#hero-slide-1:checked ~ .hero-slider__wrapper .hero-slider__slide[data-slide-index="0"],
-#hero-slide-2:checked ~ .hero-slider__wrapper .hero-slider__slide[data-slide-index="0"],
-#hero-slide-3:checked ~ .hero-slider__wrapper .hero-slider__slide[data-slide-index="0"] {
-  opacity: 0;
-  transform: translateX(-100%);
-  pointer-events: none;
-  z-index: 1;
-}
-
-#hero-slide-0:checked ~ .hero-slider__wrapper .hero-slider__slide[data-slide-index="1"],
-#hero-slide-0:checked ~ .hero-slider__wrapper .hero-slider__slide[data-slide-index="2"],
-#hero-slide-0:checked ~ .hero-slider__wrapper .hero-slider__slide[data-slide-index="3"],
-#hero-slide-1:checked ~ .hero-slider__wrapper .hero-slider__slide[data-slide-index="2"],
-#hero-slide-1:checked ~ .hero-slider__wrapper .hero-slider__slide[data-slide-index="3"],
-#hero-slide-2:checked ~ .hero-slider__wrapper .hero-slider__slide[data-slide-index="3"] {
-  transform: translateX(100%);
-}
-
-#hero-slide-1:checked ~ .hero-slider__wrapper .hero-slider__slide[data-slide-index="0"],
-#hero-slide-2:checked ~ .hero-slider__wrapper .hero-slider__slide[data-slide-index="0"],
-#hero-slide-2:checked ~ .hero-slider__wrapper .hero-slider__slide[data-slide-index="1"],
-#hero-slide-3:checked ~ .hero-slider__wrapper .hero-slider__slide[data-slide-index="0"],
-#hero-slide-3:checked ~ .hero-slider__wrapper .hero-slider__slide[data-slide-index="1"],
-#hero-slide-3:checked ~ .hero-slider__wrapper .hero-slider__slide[data-slide-index="2"] {
-  transform: translateX(-100%);
-}
-
-// Indicator active states based on radio buttons (CSS-first approach)
-#hero-slide-0:checked ~ .hero-slider__indicators .hero-slider__indicator[data-indicator-index="0"],
-#hero-slide-1:checked ~ .hero-slider__indicators .hero-slider__indicator[data-indicator-index="1"],
-#hero-slide-2:checked ~ .hero-slider__indicators .hero-slider__indicator[data-indicator-index="2"],
-#hero-slide-3:checked ~ .hero-slider__indicators .hero-slider__indicator[data-indicator-index="3"] {
-  background-color: var(--color-cyan);
-  box-shadow: 0 0 10px rgba(0, 209, 255, 0.5);
-}
-
-// Default first indicator active (when no radio is explicitly checked)
+// Default first indicator active
 .hero-slider__indicators .hero-slider__indicator[data-indicator-index="0"] {
   background-color: var(--color-cyan);
   box-shadow: 0 0 10px rgba(0, 209, 255, 0.5);
 }
 
 // Override default when another radio is checked
-#hero-slide-1:checked ~ .hero-slider__indicators .hero-slider__indicator[data-indicator-index="0"],
-#hero-slide-2:checked ~ .hero-slider__indicators .hero-slider__indicator[data-indicator-index="0"],
-#hero-slide-3:checked ~ .hero-slider__indicators .hero-slider__indicator[data-indicator-index="0"] {
-  background-color: transparent;
-  box-shadow: none;
+@for $i from 1 through 3 {
+  #hero-slide-#{$i}:checked ~ .hero-slider__indicators .hero-slider__indicator[data-indicator-index="0"] {
+    background-color: transparent;
+    box-shadow: none;
+  }
 }
 
 .overview-text {
@@ -470,11 +442,19 @@
   transition: all var(--transition-base);
 }
 
-.why-card:hover {
+.why-card:hover,
+.industry-card:hover {
   border-color: var(--color-cyan);
   background-color: rgba(0, 209, 255, 0.05);
-  transform: translateY(-4px);
   box-shadow: var(--shadow-cyan);
+}
+
+.why-card:hover {
+  transform: translateY(-4px);
+}
+
+.industry-card:hover {
+  transform: scale(1.05);
 }
 
 .why-icon {
@@ -511,12 +491,6 @@
   min-height: 150px;
 }
 
-.industry-card:hover {
-  border-color: var(--color-cyan);
-  background-color: rgba(0, 209, 255, 0.05);
-  transform: scale(1.05);
-  box-shadow: var(--shadow-cyan);
-}
 
 .industry-icon {
   font-size: 48px;
@@ -606,10 +580,7 @@
 
 /* Responsive Design */
 @media (max-width: 1024px) {
-  .hero-content {
-    grid-template-columns: 1fr;
-  }
-
+  .hero-content,
   .custom-pc-content {
     grid-template-columns: 1fr;
   }
@@ -638,17 +609,14 @@
     font-size: var(--font-size-3xl);
   }
 
-  .hero-cta {
+  .hero-cta,
+  .cta-buttons {
     flex-direction: column;
   }
 
   .shield-icon,
   .pc-icon {
     font-size: 80px;
-  }
-
-  .cta-buttons {
-    flex-direction: column;
   }
 
   .why-card {
