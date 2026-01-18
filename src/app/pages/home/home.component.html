@@ -114,7 +114,8 @@
       <h2>Comprehensive Technology Solutions</h2>
     </div>
     <div class="grid grid-cols-3">
-      <div
+      <a
+        [routerLink]="service.route"
         class="service-card card"
         *ngFor="let service of keyServices; let i = index"
         [style.animation-delay]="i * 100 + 'ms'"
@@ -122,7 +123,7 @@
         <div class="service-icon">{{ service.icon }}</div>
         <h3 class="card-title">{{ service.title }}</h3>
         <p class="card-text">{{ service.description }}</p>
-      </div>
+      </a>
     </div>
   </div>
 </section>

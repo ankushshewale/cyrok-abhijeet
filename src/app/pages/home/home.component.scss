@@ -355,6 +355,16 @@
   /* Use a valid animation duration instead of the transition variable (which includes easing) */
   animation: slideInUp 0.3s ease-out forwards;
   opacity: 0;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
 .service-icon {

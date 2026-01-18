@@ -27,32 +27,38 @@ export class HomeComponent implements OnInit, OnDestroy {
     {
       icon: '🛡️',
       title: 'Managed IT Services',
-      description: 'End-to-end IT management with 24×7 monitoring, support, and security'
+      description: 'End-to-end IT management with 24×7 monitoring, support, and security',
+      route: '/services/managed-it-services'
     },
     {
       icon: '🔐',
       title: 'Cybersecurity & SOC',
-      description: 'Advanced threat detection and Zero Trust security implementation'
+      description: 'Advanced threat detection and Zero Trust security implementation',
+      route: '/solutions/cybersecurity-solutions'
     },
     {
       icon: '☁️',
       title: 'Cloud & Data Center',
-      description: 'Scalable cloud migration and hybrid infrastructure management'
+      description: 'Scalable cloud migration and hybrid infrastructure management',
+      route: '/solutions/cloud-solutions'
     },
     {
       icon: '⚙️',
       title: 'Enterprise Infrastructure',
-      description: 'Server, network, and storage solutions for enterprises'
+      description: 'Server, network, and storage solutions for enterprises',
+      route: '/services/infrastructure-management'
     },
     {
       icon: '💻',
       title: 'Custom High-Performance PCs',
-      description: 'Precision-engineered systems for gaming, CAD, VFX, and AI/ML'
+      description: 'Precision-engineered systems for gaming, CAD, VFX, and AI/ML',
+      route: '/services/custom-high-performance-pc'
     },
     {
       icon: '📹',
       title: 'Audio-Visual & Surveillance',
-      description: 'Smart AV integration and CCTV solutions for modern spaces'
+      description: 'Smart AV integration and CCTV solutions for modern spaces',
+      route: '/solutions/audio-visual-solutions'
     }
   ];
 
