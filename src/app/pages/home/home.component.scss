@@ -427,9 +427,13 @@
 }
 
 .pc-icon {
-  font-size: 200px;
+  max-width: 600px;
+  width: 100%;
+  height: auto;
   animation: pulse 3s ease-in-out infinite;
   filter: drop-shadow(0 0 40px rgba(255, 106, 61, 0.3));
+  border-radius: var(--radius-md);
+  object-fit: contain;
 }
 
 .why-card {
@@ -614,9 +618,12 @@
     flex-direction: column;
   }
 
-  .shield-icon,
-  .pc-icon {
+  .shield-icon {
     font-size: 80px;
+  }
+
+  .pc-icon {
+    max-width: 80px;
   }
 
   .why-card {
