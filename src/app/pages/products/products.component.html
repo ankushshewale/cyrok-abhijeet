@@ -14,7 +14,7 @@
       <h2>Hardware Solutions for Every Need</h2>
     </div>
     <div class="products-grid">
-      <div class="product-card card" *ngFor="let category of productCategories" [class.highlight-card]="category.highlight">
+      <a [routerLink]="category.highlight ? '/services/custom-high-performance-pc' : '/contact'" class="product-card card" *ngFor="let category of productCategories" [class.highlight-card]="category.highlight">
         <div class="product-header">
           <div class="product-icon">{{ category.icon }}</div>
           <h3 class="product-title">{{ category.title }}</h3>
@@ -23,13 +23,7 @@
         <ul class="product-list">
           <li *ngFor="let item of category.items">{{ item }}</li>
         </ul>
-        <div class="product-cta" *ngIf="category.highlight">
-          <a routerLink="/contact" class="btn btn-primary">Build Custom PC</a>
-        </div>
-        <div class="product-cta" *ngIf="!category.highlight">
-          <a routerLink="/products" class="btn btn-secondary">View Products</a>
-        </div>
-      </div>
+      </a>
     </div>
   </div>
 </section>

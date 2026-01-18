@@ -43,6 +43,15 @@ export class ServiceDetailComponent {
       }
     });
   }
+
+  getServiceImage(slug: string): string | null {
+    const imageMap: Record<string, string> = {
+      'custom-high-performance-pc': '/images/customHighPc.jpeg',
+      'managed-it-services': '/images/managedItServices.jpeg',
+      'cybersecurity-soc': '/images/CybersecuritySoc.jpeg',
+    };
+    return imageMap[slug] || null;
+  }
 }
 
 

@@ -43,6 +43,14 @@ export class SolutionDetailComponent {
       }
     });
   }
+
+  getSolutionImage(slug: string): string | null {
+    const imageMap: Record<string, string> = {
+      'cybersecurity-solutions': '/images/CybersecuritySoc.jpeg',
+      'cloud-solutions': '/images/managedItServices.jpeg',
+    };
+    return imageMap[slug] || null;
+  }
 }
 
 

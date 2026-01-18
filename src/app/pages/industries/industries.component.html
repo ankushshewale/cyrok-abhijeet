@@ -15,14 +15,11 @@
       <p class="section-description">CYROK delivers secure, scalable, and future-ready technology solutions across diverse industries, understanding the unique challenges and compliance requirements of each sector.</p>
     </div>
     <div class="industries-grid">
-      <div class="industry-card card" *ngFor="let industry of industries; let i = index" [style.animation-delay]="(i * 100) + 'ms'">
+      <a [routerLink]="['/industries', industry.slug]" class="industry-card card" *ngFor="let industry of industries; let i = index" [style.animation-delay]="(i * 100) + 'ms'">
         <div class="industry-icon">{{ industry.icon }}</div>
         <h3 class="industry-name">{{ industry.name }}</h3>
         <p class="industry-description">{{ industry.description }}</p>
-        <div class="industry-cta">
-          <a [routerLink]="['/industries', industry.slug]" class="btn btn-secondary">View Details</a>
-        </div>
-      </div>
+      </a>
     </div>
   </div>
 </section>

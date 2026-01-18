@@ -10,12 +10,23 @@
     </nav>
 
     <div class="hero-content">
-      <div class="hero-icon">{{ currentSolution()!.icon }}</div>
-      <h1>{{ currentSolution()!.title }}</h1>
-      <h2>{{ currentSolution()!.heroSubtitle }}</h2>
-      <p class="hero-overview">
-        {{ currentSolution()!.overview }}
-      </p>
+      <div class="hero-text">
+        <h1>{{ currentSolution()!.title }}</h1>
+        <h2>{{ currentSolution()!.heroSubtitle }}</h2>
+        <p class="hero-overview">
+          {{ currentSolution()!.overview }}
+        </p>
+      </div>
+      <div class="hero-visual">
+        <img
+          [src]="getSolutionImage(currentSolution()!.slug)"
+          [alt]="currentSolution()!.title"
+          class="hero-image"
+          loading="eager"
+          *ngIf="getSolutionImage(currentSolution()!.slug)"
+        />
+        <div class="hero-icon" *ngIf="!getSolutionImage(currentSolution()!.slug)">{{ currentSolution()!.icon }}</div>
+      </div>
     </div>
   </div>
 </section>

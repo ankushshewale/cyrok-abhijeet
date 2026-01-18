@@ -10,7 +10,7 @@
 <section class="services-section">
   <div class="container">
     <div class="services-grid">
-      <div class="service-card card" *ngFor="let service of services; let i = index" [class.highlight-card]="service.highlight">
+      <a [routerLink]="['/services', service.slug]" class="service-card card" *ngFor="let service of services; let i = index" [class.highlight-card]="service.highlight">
         <div class="service-header">
           <div class="service-icon">{{ service.icon }}</div>
           <h2 class="service-title">{{ service.title }}</h2>
@@ -37,11 +37,7 @@
             </ul>
           </div>
         </div>
-
-        <div class="service-cta">
-          <a [routerLink]="['/services', service.slug]" class="btn btn-secondary">View Details</a>
-        </div>
-      </div>
+      </a>
     </div>
   </div>
 </section>

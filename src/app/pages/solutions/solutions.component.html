@@ -14,7 +14,7 @@
       <h2>Technology Solutions for Every Need</h2>
     </div>
     <div class="solutions-grid">
-      <div class="solution-card card" *ngFor="let solution of solutions; let i = index">
+      <a [routerLink]="['/solutions', solution.slug]" class="solution-card card" *ngFor="let solution of solutions; let i = index">
         <div class="solution-header">
           <div class="solution-icon">{{ solution.icon }}</div>
           <h3 class="solution-title">{{ solution.title }}</h3>
@@ -23,10 +23,7 @@
         <ul class="solution-list">
           <li *ngFor="let item of solution.items">{{ item }}</li>
         </ul>
-        <div class="solution-cta">
-          <a [routerLink]="['/solutions', solution.slug]" class="btn btn-secondary">View Details</a>
-        </div>
-      </div>
+      </a>
     </div>
   </div>
 </section>
